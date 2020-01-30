@@ -18,14 +18,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_barcodeButton_clicked()
 {
-    QSize size = ui->barcodeLabel->size();
+    QSize size = ui->barcodeLabel->size() - QSize(2,2);
     QImage barcode = mCodePrinter->printBarcode("Hello, world", size, Qt::black);
     ui->barcodeLabel->setPixmap(QPixmap::fromImage(barcode));
 }
 
 void MainWindow::on_qrcodeButton_clicked()
 {
-    QSize size = ui->barcodeLabel->size();
+    QSize size = ui->barcodeLabel->size() - QSize(2,2);
     QImage qrcode = mCodePrinter->printQrcode("Hello, world", size, Qt::black);
     ui->qrcodeLabel->setPixmap(QPixmap::fromImage(qrcode));
 }
